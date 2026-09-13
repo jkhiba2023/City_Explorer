@@ -17,12 +17,12 @@ const page = async ({ params }: { params: { id: string } }) => {
   const post = await getPost(id);
 
   return (
-    <main className="min-h-screen bg-blue-50 px-4 py-8 md:px-8 lg:px-16">
-      <article className="mx-auto flex min-h-[80vh] max-w-4xl flex-col rounded-3xl bg-white p-6 shadow-lg md:p-10">
+    <main className="min-h-screen bg-blue-50 px-4 py-8 sm:px-6 md:px-8 lg:px-16">
+      <article className="mx-auto flex min-h-[80vh] max-w-4xl flex-col rounded-3xl border border-blue-200 bg-white p-5 shadow-lg transition-shadow duration-300 hover:shadow-xl sm:p-6 md:p-10">
         <div className="mb-6">
-          <span className="rounded-full bg-blue-100 px-4 py-2 text-sm font-semibold text-blue-600">
+          <span className="inline-flex items-center rounded-full bg-blue-100 p-2 text-blue-600 transition-all duration-300 hover:bg-blue-600 hover:text-white">
             <Link href={"/articles"}>
-              <ArrowLeft />
+              <ArrowLeft size={20} />
             </Link>
           </span>
         </div>
@@ -31,41 +31,41 @@ const page = async ({ params }: { params: { id: string } }) => {
           {post.tags.map((tag: string) => (
             <span
               key={tag}
-              className="rounded-full bg-blue-500 px-3 py-1 text-sm font-medium text-white"
+              className="rounded-full bg-blue-600 px-3 py-1 text-xs font-semibold text-white sm:text-sm"
             >
               #{tag}
             </span>
           ))}
         </div>
 
-        <h1 className="max-w-3xl text-3xl font-extrabold leading-tight text-blue-700 md:text-5xl">
+        <h1 className="max-w-3xl text-3xl font-extrabold leading-tight text-blue-800 sm:text-4xl md:text-5xl">
           {post.title}
         </h1>
 
-        <div className="my-6 h-px w-full bg-blue-100" />
+        <div className="my-6 h-px w-full bg-blue-200" />
 
-        <p className="max-w-3xl text-base leading-8 text-gray-600 md:text-lg md:leading-9">
+        <p className="max-w-3xl text-base leading-8 text-blue-700 sm:text-lg md:leading-9">
           {post.body}
         </p>
 
         <div className="mt-auto pt-10">
-          <div className="flex flex-wrap items-center justify-between gap-4 rounded-2xl bg-blue-50 px-5 py-4">
-            <div className="flex items-center gap-2 text-blue-600">
+          <div className="grid grid-cols-1 gap-3 rounded-2xl border border-blue-200 bg-blue-50 p-4 sm:grid-cols-3 sm:gap-4 sm:px-5 sm:py-4">
+            <div className="flex items-center justify-center gap-2 text-blue-600 sm:justify-start">
               <Heart size={20} />
               <span className="font-semibold">{post.reactions.likes}</span>
-              <span className="text-sm text-gray-500">Likes</span>
+              <span className="text-sm text-blue-400">Likes</span>
             </div>
 
-            <div className="flex items-center gap-2 text-blue-600">
+            <div className="flex items-center justify-center gap-2 text-blue-600">
               <HeartOff size={20} />
               <span className="font-semibold">{post.reactions.dislikes}</span>
-              <span className="text-sm text-gray-500">Dislikes</span>
+              <span className="text-sm text-blue-400">Dislikes</span>
             </div>
 
-            <div className="flex items-center gap-2 text-blue-600">
+            <div className="flex items-center justify-center gap-2 text-blue-600 sm:justify-end">
               <Eye size={20} />
               <span className="font-semibold">{post.views}</span>
-              <span className="text-sm text-gray-500">Views</span>
+              <span className="text-sm text-blue-400">Views</span>
             </div>
           </div>
         </div>

@@ -17,58 +17,65 @@ const page = async () => {
   const posts = data.posts;
 
   return (
-    <div className="bg-blue-100 px-5">
-      <h1 className="font-extrabold text-blue-500 text-4xl text-left py-3">
+    <div className="bg-blue-50 px-4 py-10 sm:px-6 md:px-10">
+      <h1 className="text-center text-3xl font-extrabold text-blue-800 sm:text-4xl md:text-left">
         Latest Articles Of City Explorer
       </h1>
-      <h3 className="text-2xl text-blue-400 font-extralight py-3">
+
+      <h3 className="py-3 text-center text-lg font-light text-blue-600 sm:text-2xl md:text-left">
         Explore interesting articles and stories
       </h3>
 
-      <div className="grid grid-cols-3 gap-2 bg-blue-300 rounded-2xl p-5">
+      <div className="grid grid-cols-1 gap-6 rounded-3xl border border-blue-200 bg-white p-5 shadow-md sm:grid-cols-2 lg:grid-cols-3">
         {posts.map((post) => (
           <article
             key={post.id}
-            className="bg-blue-200 p-2 rounded-2xl my-2 h-full flex flex-col"
+            className="flex h-full flex-col rounded-2xl border border-blue-200 bg-blue-50 p-5 shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
           >
-            <div className="flex justify-start gap-1">
+            <div className="mb-4 flex flex-wrap gap-2">
               {post.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="bg-blue-400 px-1 rounded-2xl text-[12px] text-white"
+                  className="rounded-full bg-blue-600 px-3 py-1 text-xs font-semibold text-white"
                 >
                   #{tag}
                 </span>
               ))}
             </div>
-            <p className="text-blue-600 text-xl font-bold line-clamp-1">
+
+            <p className="mb-3 line-clamp-2 text-xl font-bold text-blue-800">
               {post.title}
             </p>
-            <p className="text-blue-600 font-normal line-clamp-3">
-              {post.body}
-            </p>
-            <div className="mt-auto flex justify-center">
-              <Link
-                href={`/articles/${post.id}`}
-                className="flex items-center justify-center gap-2 bg-white text-blue-400 px-2 rounded-2xl hover:text-blue-600"
-              >
-                <span>Read Article</span>
-                <MoveRight size={18} />
-              </Link>
-            </div>
-            <div className="mt-auto flex justify-between py-5">
-              <p className="flex justify-center gap-2 text-blue-600 ml-5">
-                <Heart />
-                {post.reactions.likes}
-              </p>
-              <p className="flex justify-center gap-2 text-blue-600">
-                <HeartOff />
-                {post.reactions.dislikes}
-              </p>
-              <p className="flex justify-center gap-2 text-blue-600 mr-5">
-                <Eye />
-                {post.views}
-              </p>
+
+            <p className="line-clamp-3 leading-6 text-blue-600">{post.body}</p>
+
+            <div className="mt-auto pt-6">
+              <div className="flex justify-center">
+                <Link
+                  href={`/articles/${post.id}`}
+                  className="flex items-center justify-center gap-2 rounded-full bg-blue-600 px-5 py-2 font-semibold text-white transition-all duration-300 hover:bg-blue-700"
+                >
+                  <span>Read Article</span>
+                  <MoveRight size={18} />
+                </Link>
+              </div>
+
+              <div className="mt-6 flex items-center justify-between border-t border-blue-200 pt-4">
+                <p className="flex items-center gap-2 text-blue-600">
+                  <Heart size={18} />
+                  {post.reactions.likes}
+                </p>
+
+                <p className="flex items-center gap-2 text-blue-600">
+                  <HeartOff size={18} />
+                  {post.reactions.dislikes}
+                </p>
+
+                <p className="flex items-center gap-2 text-blue-600">
+                  <Eye size={18} />
+                  {post.views}
+                </p>
+              </div>
             </div>
           </article>
         ))}
