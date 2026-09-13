@@ -1,6 +1,12 @@
 import React from "react";
 
-const page = async ({ searchParams }) => {
+type PageProps = {
+  searchParams: Promise<{
+    place?: string;
+  }>;
+};
+
+const page = async ({ searchParams }: PageProps) => {
   const { place: searchPlace } = await searchParams;
 
   if (!searchPlace) {

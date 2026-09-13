@@ -3,11 +3,29 @@ import Link from "next/link";
 
 export const revalidate = 60;
 
-const getPost = async () => {
-  const res = await fetch(`https://dummyjson.com/posts?limit=10&skip=0`);
+type Post = {
+  id: number;
+  title: string;
+  body: string;
+  tags: string[];
+  reactions: {
+    likes: number;
+    dislikes: number;
+  };
+  views: number;
+};
+
+type PostsResponse = {
+  posts: Post[];
+};
+
+const getPost = async (): Promise<PostsResponse> => {
+  const res = await fetch("https://dummyjson.com/posts?limit=10&skip=0");
+
   if (!res.ok) {
     throw new Error("Failed to fetch posts");
   }
+
   return res.json();
 };
 

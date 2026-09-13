@@ -25,9 +25,12 @@ const SearchPlace = () => {
     )
       .then((res) => res.json())
       .then((data) => {
-        let place = data[0];
+        if (!data || data.length === 0) {
+          alert("Place not found. Please try another place.");
+          return;
+        }
 
-        // console.log("get Place", place);
+        const place = data[0];
 
         setPlacename(place.display_name);
 
@@ -36,9 +39,10 @@ const SearchPlace = () => {
         )
           .then((res) => res.json())
           .then((data) => {
-            // console.log("WEATHER", data);
             setWeather(data);
+
             router.push(`/places?place=${encodeURIComponent(visitedPlace)}`);
+
             setVisitedPlace("");
           });
       });
