@@ -71,7 +71,7 @@ const SearchPlace = () => {
       </div>
 
       {/* Weather */}
-      {weather && (
+      {/* {weather && (
         <div className="flex justify-center px-2">
           <div className="w-full max-w-sm rounded-2xl border border-blue-200 bg-white p-6 text-center shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
             <div className="rounded-xl bg-blue-50 p-5">
@@ -105,7 +105,7 @@ const SearchPlace = () => {
             </div>
           </div>
         </div>
-      )}
+      )} */}
     </div>
   );
 };
