@@ -61,7 +61,7 @@ const page = async () => {
               ))}
             </div>
 
-            <p className="mb-3 line-clamp-2 text-xl font-bold text-blue-800">
+            <p className="mb-3 line-clamp-1 text-xl font-bold text-blue-800">
               {post.title}
             </p>
 
