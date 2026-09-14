@@ -78,7 +78,7 @@ const page = async () => {
                 </Link>
               </div>
 
-              <div className="mt-6 flex items-center justify-between border-t border-blue-200 pt-4">
+              {/* <div className="mt-6 flex items-center justify-between border-t border-blue-200 pt-4">
                 <p className="flex items-center gap-2 text-blue-600">
                   <Heart size={18} />
                   {post.reactions.likes}
@@ -93,7 +93,7 @@ const page = async () => {
                   <Eye size={18} />
                   {post.views}
                 </p>
-              </div>
+              </div> */}
             </div>
           </article>
         ))}
