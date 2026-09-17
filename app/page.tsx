@@ -18,7 +18,7 @@ export default function Home() {
         </h1>
 
         <p className="mx-auto mt-4 max-w-2xl text-center text-sm leading-6 text-blue-500 sm:text-base md:text-lg">
-          Discover amazing places, explore new destinations, and experience the
+          Discover amazing places, explore new destinations and experience the
           beauty of India with CityExplorer.
         </p>
       </div>
