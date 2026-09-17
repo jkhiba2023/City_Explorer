@@ -11,7 +11,11 @@ const getPost = async (id: string) => {
   return res.json();
 };
 
-const page = async ({ params }: { params: { id: string } }) => {
+const page = async ({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) => {
   const { id } = await params;
 
   const post = await getPost(id);

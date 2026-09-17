@@ -54,7 +54,7 @@ const Navbar = () => {
         </div>
 
         {/* Menu */}
-        <button onClick={() => setIsOpen(!isOpen)} className="sm:hidden">
+        <button onClick={() => setIsOpen(!isOpen)} className="md:hidden">
           {isOpen ? (
             <X size={28} className="text-white" />
           ) : (
@@ -64,16 +64,16 @@ const Navbar = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="fixed left-0 top-[90px] z-50 h-[calc(100vh-90px)] w-full bg-blue-600 p-5 opacity-90 shadow-lg md:hidden">
+          <div className="fixed left-0 top-[90px] z-50 h-[calc(100vh-90px)] w-full bg-blue-600 p-5 opacity-95 shadow-lg md:hidden">
             <div className="flex flex-col items-center gap-5">
               <Link
-                href="/place"
+                href="/places"
                 onClick={() => {
                   setIsOpen(false);
                 }}
                 className="rounded-full px-3 py-2 text-sm font-semibold text-white transition-all duration-300 hover:bg-white/20 hover:text-white sm:px-4 sm:text-base"
               >
-                Place
+                Places
               </Link>
 
               <Link
