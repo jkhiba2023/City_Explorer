@@ -1,10 +1,10 @@
 import { RenderingBadge } from "@/Components/RenderingBadge";
+import { TicketButton } from "@/Components/TicketButton";
 import { sampleEvents, EventItem } from "@/data/eventsData";
 import {
   Calendar,
   MapPin,
   Tag,
-  Ticket,
   Sparkles,
   AlertCircle,
 } from "lucide-react";
@@ -143,18 +143,7 @@ export default async function EventsPage() {
                     City: {event.city}
                   </span>
 
-                  <button
-                    type="button"
-                    onClick={() =>
-                      alert(
-                        `Booking details for ${event.name}: Tickets and registration available via official event partner.`
-                      )
-                    }
-                    className="flex items-center gap-1.5 rounded-xl bg-blue-600 px-4 py-2 text-xs font-bold text-white shadow-xs transition hover:bg-blue-700"
-                  >
-                    <Ticket className="size-3.5" />
-                    <span>Get Tickets</span>
-                  </button>
+                  <TicketButton eventName={event.name} />
                 </div>
               </div>
             </div>
